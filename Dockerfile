@@ -1,13 +1,13 @@
 # Base on Fedora 34
 FROM fedora:34
 # Make sure all sources are up to date
-RUN dnf update -y
-# Install python dependecies
-RUN dnf install -y python3 python3-pip python3-devel
-# Install all C dependencies
-RUN dnf install -y gcc clang git gcc gdb make libasan libubsan liblsan libtsan
-# Install other dependencies
-RUN dnf install -y findutils bzip2 e2fsprogs
+RUN dnf update -y && \
+    dnf install -y \
+        python3 python3-pip python3-devel \
+        gcc clang git gcc gdb make libasan libubsan liblsan libtsan \
+        findutils bzip2 e2fsprogs \
+        --nodocs --setopt install_weak_deps=False && \
+    dnf clean all -y
 # Add the artemis_user
 COPY add_user.sh .
 RUN bash /add_user.sh
