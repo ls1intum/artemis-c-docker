@@ -1,4 +1,4 @@
-# Base on Fedora 34
+# Base on Fedora
 FROM fedora:36
 # Make sure all sources are up to date
 RUN dnf update -y && \
