@@ -12,7 +12,8 @@ if [ $(id -u) -eq 0 ]; then
 		exit 1
 	else
 		pass=$(perl -e 'print crypt($ARGV[0], "password")' $password)
-		useradd "$username"
+		# UserID 5000 required for Artemis Build Infrastructure
+		useradd --uid 5000 "$username"
 		[ $? -eq 0 ] && echo "User has been added to system!" || echo "Failed to add a user!"
 	fi
 else
