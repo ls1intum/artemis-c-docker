@@ -1,5 +1,5 @@
 # Base on Fedora 34
-FROM fedora:34
+FROM fedora:38
 # Make sure all sources are up to date
 RUN dnf update -y && \
     dnf install -y \
