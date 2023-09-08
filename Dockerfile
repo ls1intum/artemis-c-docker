@@ -7,9 +7,7 @@ RUN dnf update -y && \
         findutils bzip2 e2fsprogs \
         --nodocs --setopt install_weak_deps=False && \
     dnf clean all -y
-# Add the artemis_user
-COPY add_user.sh .
-RUN bash /add_user.sh
+RUN useradd --uid 5000 artemis_user
 # Give the artemis_user sudo rights without a password by default
 RUN echo "artemis_user     ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers
 # Change the user to the default Artemis user (away from root)
