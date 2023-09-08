@@ -1,10 +1,9 @@
-# Base on Fedora 34
-FROM fedora:34
+FROM fedora:35
 # Make sure all sources are up to date
 RUN dnf update -y && \
     dnf install -y \
         python3 python3-pip python3-devel \
-        gcc clang git gcc gdb make libasan libubsan liblsan libtsan \
+        gcc clang git gdb make libasan libubsan liblsan libtsan \
         findutils bzip2 e2fsprogs \
         --nodocs --setopt install_weak_deps=False && \
     dnf clean all -y
