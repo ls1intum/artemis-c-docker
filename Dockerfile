@@ -7,6 +7,7 @@ RUN dnf update -y && \
         findutils bzip2 e2fsprogs \
         --nodocs --setopt install_weak_deps=False && \
     dnf clean all -y
+# UserID 5000 required for Artemis Build Infrastructure
 RUN useradd --uid 5000 artemis_user
 # Give the artemis_user sudo rights without a password by default
 RUN echo "artemis_user     ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers
