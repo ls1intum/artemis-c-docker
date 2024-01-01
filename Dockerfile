@@ -1,4 +1,4 @@
-FROM ubuntu:23.04
+FROM ubuntu:24.04
 
 # Make sure all sources are up to date
 RUN apt update && \
